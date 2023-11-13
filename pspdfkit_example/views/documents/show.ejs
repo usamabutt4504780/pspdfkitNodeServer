@@ -1,0 +1,19 @@
+<script src="http://localhost:5000/pspdfkit.js"></script>
+<!-- ÷ -->
+<!-- 2. Element where PSPDFKit will be mounted. -->
+<div id="pspdfkit" style="width: 100%; max-width: 1200px; height: 800px;"></div>
+<!-- 3. Initialize PSPDFKit. -->
+<script>
+  PSPDFKit.load({
+    container: "#pspdfkit",
+    documentId: "<%= documentId %>",
+    authPayload: { jwt: "<%= jwt %>" },
+    instant: true
+  })
+    .then(function(instance) {
+      console.log("PSPDFKit loaded", instance);
+    })
+    .catch(function(error) {
+      console.error(error.message);
+    });
+</script>
